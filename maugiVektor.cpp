@@ -1,5 +1,5 @@
-#include <array>
 #include <iostream>
+#include <iterator>
 
 int main() {
 	return 0;
@@ -7,13 +7,12 @@ int main() {
 
 int MDotProduct(int vec1 [], int vec2 []) {
 	int result;
-	
-	if(vec1.size() != vec2.size()) {
-		std::cout << "The vectors do not have the same dimension for dotproduct" << std::endl;
-		
+	int dim = *(&vec1 + 1) - vec1;
+
+	result = 0;
+	for (int i = 0; i < dim; i++) {
+		result += vec1[i] * vec2[i];
 	}
-
-
 
 	return result;
 }
